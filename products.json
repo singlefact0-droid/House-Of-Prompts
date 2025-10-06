@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Product 1",
+    "image": "images/product1.jpg",
+    "link": "product1.html"
+  },
+  {
+    "name": "Product 2",
+    "image": "images/product2.jpg",
+    "link": "product2.html"
+  },
+  {
+    "name": "Product 3",
+    "image": "images/product3.jpg",
+    "link": "product3.html"
+  }
+]
