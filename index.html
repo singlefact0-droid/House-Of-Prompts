@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Product Gallery</title>
-  <link rel="stylesheet" href="prompts.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Store</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
+
+  <!-- Header -->
   <header>
-    <h1>My Product Gallery</h1>
+    <h1>My Store</h1>
   </header>
 
- <section class="grid-container" id="productGrid">
-    <!-- Products will be loaded here dynamically -->
-  </section>
+  <!-- Main content -->
+  <main>
+    <section class="grid-container" id="productGrid">
+      <!-- Products will be dynamically loaded here -->
+    </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 My Website | All Rights Reserved</p>
+    &copy; 2025 My Store
   </footer>
 
+  <!-- JavaScript to load products -->
   <script>
-fetch('products.json')
-  .then(res => res.json())
-  .then(products => {
-    const container = document.getElementById('productGrid');
-    products.forEach((product, index) => {
-      const a = document.createElement('a');
-      a.className = 'product';
-      a.href = `product.html?id=${index}`; // Pass product index in URL
-      a.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <p>${product.name}</p>
-      `;
-      container.appendChild(a);
-    });
-  })
-  .catch(err => console.error(err));
+    fetch('products.json')
+      .then(res => res.json())
+      .then(products => {
+        const container = document.getElementById('productGrid');
+        products.forEach((product, index) => {
+          const a = document.createElement('a');
+          a.className = 'product';
+          a.href = `product.html?id=${index}`; // Pass index to product page
+          a.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <p>${product.name}</p>
+          `;
+          container.appendChild(a);
+        });
+      })
+      .catch(err => {
+        console.error('Error loading products:', err);
+        document.getElementById('productGrid').innerHTML = '<p style="color:red; text-align:center;">Failed to load products.</p>';
+      });
   </script>
+
 </body>
 </html>
-
-
