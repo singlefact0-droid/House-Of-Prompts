@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <header>
+    <h1>Product Details</h1>
+  </header>
+
+  <section class="product-page" id="productPage">
+    <!-- Product details will load here dynamically -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Store</p>
+  </footer>
+
+  <script>
+    // Load products
+    fetch('products.json')
+      .then(res => res.json())
+      .then(products => {
+        // Get product id from URL
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        if (id !== null && products[id]) {
+          const product = products[id];
+          const container = document.getElementById('productPage');
+          container.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p class="price">₹${product.price}</p>
+            <p>${product.description}</p>
+            <a href="index.html" class="btn">← Back to Home</a>
+          `;
+        } else {
+          document.getElementById('productPage').innerHTML = '<p>Product not found.</p>';
+        }
+      })
+      .catch(err => console.error(err));
+  </script>
+</body>
+</html>
