@@ -24,10 +24,10 @@ fetch('products.json')
   .then(res => res.json())
   .then(products => {
     const container = document.getElementById('productGrid');
-    products.forEach(product => {
+    products.forEach((product, index) => {
       const a = document.createElement('a');
       a.className = 'product';
-      a.href = product.link;   // This must match the filename
+      a.href = `product.html?id=${index}`; // Pass product index in URL
       a.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
         <p>${product.name}</p>
@@ -35,9 +35,9 @@ fetch('products.json')
       container.appendChild(a);
     });
   })
-  .catch(err => console.error('Error loading products:', err));
-
+  .catch(err => console.error(err));
   </script>
 </body>
 </html>
+
 
