@@ -3,13 +3,14 @@
     "name": "Cyber Muse",
     "category": "Art",
     "image": "images/cyber_muse.jpg",
-    "prompt": "Create a futuristic cyberpunk inspired art piece.",   
+    "prompt": "Create a futuristic cyberpunk inspired art piece.",
+    
   },
   {
     "name": "Neon Skyline",
     "category": "Art",
     "image": "images/neon_skyline.jpg",
     "prompt": "Design a glowing city skyline at night with neon lights.",
+    
   }
 ]
-
