@@ -20,25 +20,24 @@
   </footer>
 
   <script>
-    // Load product data from products.json
-    fetch('products.json')
-      .then(response => response.json())
-      .then(products => {
-        const container = document.getElementById('productGrid');
-        products.forEach(product => {
-          const item = document.createElement('a');
-          item.className = 'product';
-          item.href = product.link;
-          item.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <p>${product.name}</p>
-          `;
-          container.appendChild(item);
-        });
-      })
-      .catch(error => {
-        console.error('Error loading products:', error);
-      });
+fetch('products.json')
+  .then(res => res.json())
+  .then(products => {
+    const container = document.getElementById('productGrid');
+    products.forEach(product => {
+      const a = document.createElement('a');
+      a.className = 'product';
+      a.href = product.link;   // This must match the filename
+      a.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <p>${product.name}</p>
+      `;
+      container.appendChild(a);
+    });
+  })
+  .catch(err => console.error('Error loading products:', err));
+
   </script>
 </body>
 </html>
+
