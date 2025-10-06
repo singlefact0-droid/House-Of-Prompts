@@ -26,28 +26,28 @@
   </footer>
 
   <!-- JavaScript to load products -->
-  <script>
-    fetch('products.json')
-      .then(res => res.json())
-      .then(products => {
-        const container = document.getElementById('productGrid');
-        products.forEach((product, index) => {
-          const a = document.createElement('a');
-          a.className = 'product';
-          a.href = `product.html?id=${index}`; // Pass index to product page
-          a.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <p>${product.name}</p>
-          `;
-          container.appendChild(a);
-        });
-      })
-      .catch(err => {
-        console.error('Error loading products:', err);
-        document.getElementById('productGrid').innerHTML = '<p style="color:red; text-align:center;">Failed to load products.</p>';
-      });
+ 
+   <script>
+fetch('products.json')
+  .then(res => res.json())
+  .then(products => {
+    const container = document.getElementById('productGrid');
+    products.forEach((product, index) => {
+      const a = document.createElement('a');
+      a.className = 'product';
+      a.href = `product.html?id=${index}`; // link to product page
+      a.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <p>${product.name}</p>
+      `;
+      container.appendChild(a);
+    });
+  })
+  .catch(err => console.error('Error loading products:', err));
+
   </script>
 
 </body>
 </html>
+
 
