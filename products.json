@@ -1,17 +1,16 @@
 [
   {
-    "name": "Product 1",
-    "image": "images/product1.jpg",
-    "link": "product1.html"
+    "name": "Cyber Muse",
+    "category": "Art",
+    "image": "images/cyber_muse.jpg",
+    "prompt": "Create a futuristic cyberpunk inspired art piece.",
+    "price": 0
   },
   {
-    "name": "Product 2",
-    "image": "images/product2.jpg",
-    "link": "product2.html"
-  },
-  {
-    "name": "Product 3",
-    "image": "images/product3.jpg",
-    "link": "product3.html"
+    "name": "Neon Skyline",
+    "category": "Art",
+    "image": "images/neon_skyline.jpg",
+    "prompt": "Design a glowing city skyline at night with neon lights.",
+    "price": 0
   }
 ]
