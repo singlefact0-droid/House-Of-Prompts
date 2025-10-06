@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details</title>
-  <link rel="stylesheet" href="prompts.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
+
   <header>
     <h1>Product Details</h1>
   </header>
 
   <section class="product-page" id="productPage">
-    <!-- Product details will load here dynamically -->
+    <!-- Product will be loaded dynamically -->
   </section>
 
   <footer>
@@ -24,19 +25,24 @@
     fetch('products.json')
       .then(res => res.json())
       .then(products => {
-        // Get product id from URL
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
 
         if (id !== null && products[id]) {
           const product = products[id];
           const container = document.getElementById('productPage');
+
           container.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h2>${product.name}</h2>
-            <p class="price">₹${product.price}</p>
-            <p>${product.description}</p>
-            <a href="index.html" class="btn">← Back to Home</a>
+            <div class="product-left">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-right">
+              <h2>${product.name}</h2>
+              <p><strong>Category:</strong> ${product.category}</p>
+              <button class="watch-ad">Watch Ad to Unlock</button>
+              <p class="prompt"><strong>Prompt:</strong> ${product.prompt}</p>
+              <a href="index.html" class="btn">← Back to Home</a>
+            </div>
           `;
         } else {
           document.getElementById('productPage').innerHTML = '<p>Product not found.</p>';
@@ -44,6 +50,6 @@
       })
       .catch(err => console.error(err));
   </script>
+
 </body>
 </html>
-
