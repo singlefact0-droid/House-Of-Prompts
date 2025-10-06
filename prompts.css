@@ -1,82 +1,7 @@
-/* Basic reset and theme */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background-color: #0e0e0e;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-
-header {
-  width: 100%;
-  text-align: center;
-  padding: 2rem 0;
-  background: #111;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-}
-
-header h1 {
-  font-size: 2rem;
-  color: #f5f5f5;
-  letter-spacing: 1px;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  width: 90%;
-  max-width: 1200px;
-  margin: 3rem auto;
-}
-
-.product {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: #1a1a1a;
-  border: 1px solid #222;
-  text-decoration: none;
-}
-
-.product:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-}
-
-.product img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-}
-
-.product p {
-  text-align: center;
-  padding: 1rem;
-  font-size: 1.1rem;
-  color: #ccc;
-}
-
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  background: #111;
-  width: 100%;
-  margin-top: auto;
-}
-/* === Dark Theme General Style === */
-body.dark-theme {
+/* =========================
+   General Dark Theme Styles
+   ========================= */
+body.dark-theme, body {
   font-family: 'Poppins', sans-serif;
   background-color: #121212;
   color: #e0e0e0;
@@ -94,8 +19,20 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
-/* Product container */
-#product-container {
+/* Footer */
+footer {
+  background: #1e1e1e;
+  color: #888;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.85rem;
+  border-top: 2px solid #333;
+}
+
+/* =========================
+   Homepage Product Grid
+   ========================= */
+.grid-container, #product-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 25px;
@@ -105,52 +42,153 @@ header {
 }
 
 /* Product cards */
-.product-card {
+.product-card, .product {
   background: #1a1a1a;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   overflow: hidden;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  display: block;
+  color: #fff;
+  text-decoration: none;
 }
 
-.product-card:hover {
+.product-card:hover, .product:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.6);
   background: #222;
 }
 
-/* Product image */
-.product-card img {
+/* Image inside product card/grid */
+.product-card img, .product img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-/* Info area */
-.product-info {
-  padding: 15px;
-}
-
-/* Product name */
-.product-card h3 {
-  color: #f0f0f0;
+/* Product info inside grid */
+.product-card h3, .product p {
   margin: 10px 0;
-  font-size: 1.1rem;
+  color: #f0f0f0;
 }
 
-/* Price */
 .price {
   color: #4caf50;
   font-weight: bold;
-  margin: 5px 0;
 }
 
-/* Description */
-.description {
-  font-size: 0.9rem;
-  color: #bbb;
-  line-height: 1.4;
+/* =========================
+   Product Page Split Layout
+   ========================= */
+.product-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+/* Left side - product image */
+.product-left {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-left img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Right side - product info */
+.product-right {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #f0f0f0;
+}
+
+.product-right h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.product-right p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.product-right .prompt {
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Buttons */
+.watch-ad, .product-right .btn {
+  margin: 15px 0;
+  padding: 10px 20px;
+  background: #333;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.watch-ad:hover, .product-right .btn:hover {
+  background: #555;
+  transform: scale(1.05);
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+@media screen and (max-width: 768px) {
+  .product-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-left, .product-right {
+    flex: 1 1 100%;
+  }
+
+  .product-right {
+    align-items: center;
+    text-align: center;
+  }
+}
+/* =========================
+   General Dark Theme Styles
+   ========================= */
+body.dark-theme, body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: #1e1e1e;
+  color: #f5f5f5;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 /* Footer */
@@ -161,4 +199,146 @@ footer {
   padding: 15px 0;
   font-size: 0.85rem;
   border-top: 2px solid #333;
+}
+
+/* =========================
+   Homepage Product Grid
+   ========================= */
+.grid-container, #product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Product cards */
+.product-card, .product {
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.product-card:hover, .product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+  background: #222;
+}
+
+/* Image inside product card/grid */
+.product-card img, .product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Product info inside grid */
+.product-card h3, .product p {
+  margin: 10px 0;
+  color: #f0f0f0;
+}
+
+.price {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* =========================
+   Product Page Split Layout
+   ========================= */
+.product-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+/* Left side - product image */
+.product-left {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-left img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Right side - product info */
+.product-right {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #f0f0f0;
+}
+
+.product-right h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.product-right p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.product-right .prompt {
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Buttons */
+.watch-ad, .product-right .btn {
+  margin: 15px 0;
+  padding: 10px 20px;
+  background: #333;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.watch-ad:hover, .product-right .btn:hover {
+  background: #555;
+  transform: scale(1.05);
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+@media screen and (max-width: 768px) {
+  .product-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-left, .product-right {
+    flex: 1 1 100%;
+  }
+
+  .product-right {
+    align-items: center;
+    text-align: center;
+  }
 }
