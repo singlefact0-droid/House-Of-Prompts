@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Product Gallery</title>
+  <link rel="stylesheet" href="prompts.css">
+</head>
+<body>
+  <header>
+    <h1>My Product Gallery</h1>
+  </header>
+
+ <section class="grid-container" id="productGrid">
+    <!-- Products will be loaded here dynamically -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Website | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Load product data from products.json
+    fetch('products.json')
+      .then(response => response.json())
+      .then(products => {
+        const container = document.getElementById('productGrid');
+        products.forEach(product => {
+          const item = document.createElement('a');
+          item.className = 'product';
+          item.href = product.link;
+          item.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <p>${product.name}</p>
+          `;
+          container.appendChild(item);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading products:', error);
+      });
+  </script>
+</body>
+</html>
