@@ -26,7 +26,8 @@ header {
 header h1 {
   margin: 0;
   font-size: 24px;
-  color: #EFC617; 
+  color: #FFC107; /* gold accent */
+}
 
 nav a {
   color: #f0f0f0;
@@ -37,7 +38,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #EFC617; 
+  color: #FFC107; /* gold accent on hover */
 }
 
 /* ====== Main Section ====== */
@@ -65,7 +66,7 @@ main {
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 180, 216, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 193, 7, 0.3); /* gold hover shadow */
 }
 
 .product-card img {
@@ -77,7 +78,7 @@ main {
 
 .product-card h3 {
   margin: 15px 0 10px;
-  color: #00b4d8;
+  color: #FFC107; /* gold title */
 }
 
 .product-card p {
@@ -114,7 +115,7 @@ main {
 }
 
 .product-info h2 {
-  color: #ff4c4c; /* Title red */
+  color: #FF5722; /* reddish-orange title */
   margin-bottom: 8px;
 }
 
@@ -124,7 +125,7 @@ main {
 }
 
 .unlock-btn {
-  background-color: #ff4c4c; /* Button red */
+  background-color: #FF5722; /* button red-orange */
   color: #fff;
   border: none;
   padding: 10px 18px;
@@ -136,7 +137,7 @@ main {
 }
 
 .unlock-btn:hover {
-  background-color: #EFC617; /* Button hover darker red */
+  background-color: #FFC107; /* button hover gold */
 }
 
 /* ====== Footer ====== */
@@ -183,5 +184,3 @@ footer {
     text-align: center;
   }
 }
-
-
