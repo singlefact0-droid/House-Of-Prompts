@@ -1,16 +1,23 @@
 [
   {
-    "name": "Cyber Muse",
+    "id": 1,
+    "title": "Cyber Muse",
     "category": "Art",
-    "image": "images/cyber_muse.jpg",
-    "prompt": "Create a futuristic cyberpunk inspired art piece.",
-    
+    "prompt": "Create a futuristic portrait of a digital goddess.",
+    "image": "images/cyber_muse.jpg"
   },
   {
-    "name": "Neon Skyline",
+    "id": 2,
+    "title": "Neon Samurai",
     "category": "Art",
-    "image": "images/neon_skyline.jpg",
-    "prompt": "Design a glowing city skyline at night with neon lights.",
-    
+    "prompt": "Draw a glowing warrior in a dystopian Tokyo.",
+    "image": "images/neon_samurai.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Forest Guardian",
+    "category": "Nature",
+    "prompt": "Illustrate a mythical creature protecting a forest.",
+    "image": "images/forest_guardian.jpg"
   }
 ]
