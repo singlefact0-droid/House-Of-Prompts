@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Details</title>
-  <link rel="stylesheet" href="prompts.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details | Dark Store</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dark-theme">
-
+<body>
   <header>
-    <h1>Product Details</h1>
+    <h1>Dark Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Products</a>
+    </nav>
   </header>
 
-  <section class="product-page" id="productPage">
-    <!-- Product will be loaded dynamically -->
-  </section>
+  <main>
+    <div id="productContainer" class="product-container">
+      <p>Loading product details...</p>
+    </div>
+  </main>
 
   <footer>
-    <p>&copy; 2025 My Store</p>
+    &copy; 2025 Dark Store. All rights reserved.
   </footer>
 
   <script>
-    // Load products
-    fetch('products.json')
-      .then(res => res.json())
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get("id"));
+
+    // Load product data
+    fetch("products.json")
+      .then(response => response.json())
       .then(products => {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
+        const product = products.find(p => p.id === productId);
+        const container = document.getElementById("productContainer");
 
-        if (id !== null && products[id]) {
-          const product = products[id];
-          const container = document.getElementById('productPage');
-
+        if (product) {
           container.innerHTML = `
-            <div class="product-left">
-              <img src="${product.image}" alt="${product.name}">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.title}">
             </div>
-            <div class="product-right">
-              <h2>${product.name}</h2>
+            <div class="product-info">
+              <h2>${product.title}</h2>
               <p><strong>Category:</strong> ${product.category}</p>
-              <button class="watch-ad">Watch Ad to Unlock</button>
-              <p class="prompt"><strong>Prompt:</strong> ${product.prompt}</p>
-              <a href="index.html" class="btn">← Back to Home</a>
+              <button class="unlock-btn">Watch Ad to Unlock</button>
+              <p><strong>Prompt:</strong> ${product.prompt}</p>
             </div>
           `;
         } else {
-          document.getElementById('productPage').innerHTML = '<p>Product not found.</p>';
+          container.innerHTML = "<p style='color: red;'>Product not found.</p>";
         }
       })
-      .catch(err => console.error(err));
+      .catch(error => {
+        console.error("Error loading product:", error);
+        document.getElementById("productContainer").innerHTML =
+          "<p style='color: red;'>Failed to load product details.</p>";
+      });
   </script>
-
 </body>
 </html>
-
