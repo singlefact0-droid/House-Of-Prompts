@@ -26,8 +26,7 @@ header {
 header h1 {
   margin: 0;
   font-size: 24px;
-  color: #ff4c4c; /* Changed cyan to reddish */
-}
+  color: #EFC617; 
 
 nav a {
   color: #f0f0f0;
@@ -38,7 +37,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #ff4c4c; /* Hover changed to reddish */
+  color: #EFC617; 
 }
 
 /* ====== Main Section ====== */
@@ -137,7 +136,7 @@ main {
 }
 
 .unlock-btn:hover {
-  background-color: #e03b3b; /* Button hover darker red */
+  background-color: #EFC617; /* Button hover darker red */
 }
 
 /* ====== Footer ====== */
@@ -184,4 +183,5 @@ footer {
     text-align: center;
   }
 }
+
 
