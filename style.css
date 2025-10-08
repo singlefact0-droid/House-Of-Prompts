@@ -26,7 +26,7 @@ header {
 header h1 {
   margin: 0;
   font-size: 24px;
-  color: #00b4d8;
+  color: #ff4c4c; /* Changed cyan to reddish */
 }
 
 nav a {
@@ -38,7 +38,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #00b4d8;
+  color: #ff4c4c; /* Hover changed to reddish */
 }
 
 /* ====== Main Section ====== */
@@ -56,11 +56,17 @@ main {
 }
 
 .product-card {
-  background-color: transparent; /* keep the grid background clean */
+  background-color: #1c1c1c;
   border-radius: 12px;
-  padding: 0;
+  padding: 20px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(255, 76, 76, 0.3); /* Hover shadow red */
 }
 
 .product-card img {
@@ -70,18 +76,14 @@ main {
   border-radius: 10px;
 }
 
-/* Title and category below image */
-.product-card h3,
-.product-card p {
-  margin: 5px 0 0 0;
-  color: #ffffff; /* full white */
-  font-weight: bold;
+.product-card h3 {
+  margin: 15px 0 10px;
+  color: #ff4c4c; /* Title changed to red */
 }
 
 .product-card p {
-  font-weight: normal;
+  color: #ccc;
   font-size: 14px;
-  color: #ffffff; /* category also white */
 }
 
 /* ====== Product Details Layout ====== */
@@ -113,7 +115,7 @@ main {
 }
 
 .product-info h2 {
-  color: #00b4d8;
+  color: #ff4c4c; /* Title red */
   margin-bottom: 8px;
 }
 
@@ -123,7 +125,7 @@ main {
 }
 
 .unlock-btn {
-  background-color: #00b4d8;
+  background-color: #ff4c4c; /* Button red */
   color: #fff;
   border: none;
   padding: 10px 18px;
@@ -135,7 +137,7 @@ main {
 }
 
 .unlock-btn:hover {
-  background-color: #0092b5;
+  background-color: #e03b3b; /* Button hover darker red */
 }
 
 /* ====== Footer ====== */
@@ -182,4 +184,3 @@ footer {
     text-align: center;
   }
 }
-
